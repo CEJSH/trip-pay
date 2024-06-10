@@ -14,6 +14,7 @@ export const CenteredOverlayForm = ({
   );
 };
 const CentralizedContainer = styled(Container)`
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
