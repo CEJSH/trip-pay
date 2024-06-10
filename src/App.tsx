@@ -6,7 +6,6 @@ import { AddMembers } from "./components/AddMembers";
 import { ExpenseMain } from "./components/ExpenseMain";
 // import type { Schema } from "../amplify/data/resource";
 // import { generateClient } from "aws-amplify/data";
-
 // const client = generateClient<Schema>();
 
 const App = () => (

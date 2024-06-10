@@ -3,6 +3,7 @@ import { Button, Container, Form, Row } from "react-bootstrap";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { groupNameState } from "../state/groupName.ts";
+import { CenteredOverlayForm } from "./CenteredOverlayForm.tsx";
 
 export const CreateGroup = () => {
   const [validated, setValidated] = useState(false);
@@ -20,8 +21,7 @@ export const CreateGroup = () => {
     setValidated(true);
   };
   return (
-    <div>
-      <h1>Dutch Pay</h1>
+    <CenteredOverlayForm>
       <Container>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row>먼저, 정산이 필요한 그룹의 이름을 정해볼까요?</Row>
@@ -45,7 +45,6 @@ export const CreateGroup = () => {
           </Row>
         </Form>
       </Container>
-      {/* <CenteredOverlayForm /> */}
-    </div>
+    </CenteredOverlayForm>
   );
 };
