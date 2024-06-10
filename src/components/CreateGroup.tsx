@@ -1,18 +1,21 @@
 import { Button, Container, Form, Row } from "react-bootstrap";
 // import { CenteredOverlayForm } from "./CenteredOverlayForm.jsx";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
-import { groupNameState } from "../state/groupName.js";
+import { groupNameState } from "../state/groupName.ts";
 
 export const CreateGroup = () => {
   const [validated, setValidated] = useState(false);
+  const [validGroupName, setValidGroupName] = useState(false);
   const [groupName, setGroupName] = useRecoilState(groupNameState);
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity()) {
+      setValidGroupName(true);
     } else {
       event.stopPropagation();
+      setValidGroupName(false);
     }
     setValidated(true);
   };
@@ -28,11 +31,11 @@ export const CreateGroup = () => {
                 type="text"
                 required
                 placeholder="what travel it is?"
-                onChange={(e) => {
+                onChange={(e: any) => {
                   setGroupName(e.target.value);
                 }}
               />
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback type="invalid" data-valid={validGroupName}>
                 그룹 이름을 입력해 주세요
               </Form.Control.Feedback>
             </Form.Group>
