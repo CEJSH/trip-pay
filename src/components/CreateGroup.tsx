@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { groupNameState } from "../state/groupName.ts";
 import { CenteredOverlayForm } from "./CenteredOverlayForm.tsx";
+import styled from "styled-components";
 
 export const CreateGroup = () => {
   const [validated, setValidated] = useState(false);
@@ -24,27 +25,60 @@ export const CreateGroup = () => {
     <CenteredOverlayForm>
       <Container>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row>먼저, 정산이 필요한 그룹의 이름을 정해볼까요?</Row>
-          <Row>
-            <Form.Group controlId="validationGroupName">
-              <Form.Control
-                type="text"
-                required
-                placeholder="what travel it is?"
-                onChange={(e: any) => {
-                  setGroupName(e.target.value);
-                }}
-              />
-              <Form.Control.Feedback type="invalid" data-valid={validGroupName}>
-                그룹 이름을 입력해 주세요
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Row>
-          <Row>
-            <Button type="submit">저장</Button>
-          </Row>
+          <StyledRow>
+            <Row className="align-item-start">
+              <StyledH2>먼저, 정산이 필요한 그룹의 이름을 정해볼까요?</StyledH2>
+            </Row>
+            <Row className="align-item-center">
+              <Form.Group controlId="validationGroupName">
+                <Form.Control
+                  type="text"
+                  required
+                  placeholder=""
+                  onChange={(e: any) => {
+                    setGroupName(e.target.value);
+                  }}
+                />
+                <Form.Control.Feedback
+                  type="invalid"
+                  data-valid={validGroupName}
+                >
+                  그룹 이름을 입력해 주세요
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <Row className="align-item-end">
+              <StyledSubmitButton>저장</StyledSubmitButton>
+            </Row>
+          </StyledRow>
         </Form>
       </Container>
     </CenteredOverlayForm>
   );
 };
+
+const StyledH2 = styled.h2`
+  font-weight: 700;
+  line-height: 35px;
+  text-align: right;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+`;
+
+const StyledSubmitButton = styled(Button).attrs({
+  type: "submit",
+})<any>`
+  background: #6610f2;
+  border: none;
+  border-radius: 8px;
+  &:hover {
+    background: #6610f2;
+    filter: brightness(80%);
+  }
+`;
+
+const StyledRow = styled(Row)`
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+`;
