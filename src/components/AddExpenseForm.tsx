@@ -86,7 +86,7 @@ export const AddExpenseForm = () => {
                 isValid={isAmountValid}
                 isInvalid={!isAmountValid && validated}
                 placeholder="비용은 얼마였나요?"
-                value={amount.toLocaleString()}
+                value={amount}
                 onChange={({ target }) => setAmount(Number(target.value))}
               />
               <Form.Control.Feedback data-valid={isAmountValid} type="invalid">
