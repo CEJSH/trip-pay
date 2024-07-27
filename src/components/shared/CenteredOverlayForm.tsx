@@ -73,6 +73,7 @@ const StyledSubmitButton = styled(Button).attrs({
 `;
 
 const StyledCentralizedRow = styled(Row)`
+  max-width: 500px;
   height: 60vh;
   align-items: center;
   justify-content: center;
