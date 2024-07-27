@@ -5,9 +5,6 @@ import { CreateGroup } from "./components/CreateGroup";
 import { AddMembers } from "./components/AddMembers";
 import { ExpenseMain } from "./components/ExpenseMain";
 import { ROUTES } from "./route";
-// import type { Schema } from "../amplify/data/resource";
-// import { generateClient } from "aws-amplify/data";
-// const client = generateClient<Schema>();
 
 const App = () => (
   <BrowserRouter>

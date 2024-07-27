@@ -27,7 +27,6 @@ const LeftPane = () => {
     <StyledPaneWrapper>
       <ServiceLogo />
       <StyledGapRow>
-        {/* <Row></Row> */}
         <Row>
           <AddExpenseForm />
         </Row>

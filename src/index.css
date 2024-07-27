@@ -63,7 +63,9 @@ a {
   font-weight: 800;
   text-decoration: none;
 } */
-
+#root {
+  min-width: 300px;
+}
 body {
   background-color: #e5e3e5;
 }
