@@ -20,7 +20,7 @@ export default function ExpenseTable() {
               <td>{date}</td>
               <td>{desc}</td>
               <td>{payer}</td>
-              <td>{amount} 원</td>
+              <td>{amount.toLocaleString()} 원</td>
             </tr>
           ))}
         </StyledBody>

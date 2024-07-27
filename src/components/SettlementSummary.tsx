@@ -123,7 +123,8 @@ export default function SettlementSummary() {
         <>
           <StyledSummary>
             <span>
-              {groupMembersCount} 명이서 총 {totalExpenseAmount}원 지출
+              {groupMembersCount} 명이서 총{" "}
+              {totalExpenseAmount.toLocaleString()}원 지출
             </span>
             <br />
             <span>한 사람 당 {Math.ceil(splitAmount).toLocaleString()}원</span>

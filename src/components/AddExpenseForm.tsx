@@ -17,7 +17,9 @@ export const AddExpenseForm = () => {
   const [amount, setAmount] = useState<number>(0);
   const [payer, setPayer] = useState<string | undefined>(undefined);
   const [validated, setValidated] = useState<boolean>(false);
-
+  const [isDescValid, setIsDescValid] = useState(false);
+  const [isAmountValid, setIsAmountValid] = useState(false);
+  const [isPayerValid, setIsPayerValid] = useState(false);
   const setExpense = useSetRecoilState(expensesState);
   const checkFormValidity = () => {
     const descValid = desc.length > 0;
@@ -36,13 +38,11 @@ export const AddExpenseForm = () => {
       // todo: state에 데이터 저장
       const newExpense = { date, desc, amount, payer };
       setExpense((expense) => [...expense, { ...newExpense }]);
+      setAmount(0);
+      setDesc("");
     }
     setValidated(true);
   };
-
-  const [isDescValid, setIsDescValid] = useState(false);
-  const [isAmountValid, setIsAmountValid] = useState(false);
-  const [isPayerValid, setIsPayerValid] = useState(false);
 
   return (
     <StyledWrapper>
@@ -86,7 +86,7 @@ export const AddExpenseForm = () => {
                 isValid={isAmountValid}
                 isInvalid={!isAmountValid && validated}
                 placeholder="비용은 얼마였나요?"
-                value={amount}
+                value={amount.toLocaleString()}
                 onChange={({ target }) => setAmount(Number(target.value))}
               />
               <Form.Control.Feedback data-valid={isAmountValid} type="invalid">
