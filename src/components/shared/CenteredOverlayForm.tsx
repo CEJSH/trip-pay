@@ -38,7 +38,7 @@ export const CenteredOverlayForm = ({
 };
 
 const StyledCentralizedContainer = styled(Container)`
-  width: 50vw;
+  min-width: 50vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

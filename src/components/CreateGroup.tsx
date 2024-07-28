@@ -4,7 +4,6 @@ import { useSetRecoilState } from "recoil";
 import { groupNameState } from "../state/groupName.ts";
 import { CenteredOverlayForm } from "./shared/CenteredOverlayForm.tsx";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 export const CreateGroup = () => {
   const [validated, setValidated] = useState(false);

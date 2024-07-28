@@ -127,13 +127,13 @@ export const AddExpenseForm = () => {
 };
 
 export const StyledTitle = styled.h3`
-  height: 60px;
+  height: 54px;
   margin-bottom: 16px;
   gap: 0px;
   opacity: 0px;
   color: #fffbfb;
   text-align: center;
-  font-size: 36px;
+  font-size: 28x;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.25px;
@@ -149,6 +149,7 @@ const StyledFormGroup = styled(Form.Group)`
     border: 0px;
     color: #f8f9fa;
     height: 48px;
+    font-size: 18px !important;
 
     &:focus {
       color: #f8f9fa;
@@ -188,7 +189,7 @@ const StyledSubmitButton = styled(Button).attrs({
 
 const StyledWrapper = styled.div`
   background-color: #683ba1;
-  padding: 40px;
+  padding: 24px 34px;
   box-shadow: 3px 0px 4px 0px #00000040;
   border-radius: 15px;
 `;

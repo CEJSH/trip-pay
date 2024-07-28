@@ -53,7 +53,7 @@ const RightPane = () => {
 };
 
 const StyledGapRow = styled(Row)`
-  margin-top: 4vh;
+  margin-top: 2vh;
   gap: 5vh;
   justify-content: space-between;
 `;
@@ -72,5 +72,8 @@ const StyledContainer = styled(Container)`
 `;
 
 const StyledPaneWrapper = styled(StyledContainer)`
-  padding: 60px 31px 60px 31px;
+  justify-content: center;
+  padding: 0px 31px 0px 31px;
+  display: flex;
+  flex-direction: column;
 `;
