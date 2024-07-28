@@ -2,11 +2,15 @@
 <br/>
 
 ###  💸  프로젝트 소개
-이사 한 집 옆건물이 공사를 하는 상황을 피하고 싶은 사용자를 위한 서비스
-- 더 나은 주거 환경을 위한 추가 옵션이 필요하다면?
-- 통제할 수 있는 여지가 있다면 통제하고 싶으신 분
-- 집에 있는 시간이 많으신 분
-- 소음에 예민하신 분
+비용을 입력하고 정산하는 과정 (송금 전까지)을 간편하게 한 번에 정산 결과를 보여줍니다.
+
+<br/>
+
+###  💸  주요 기능
+- 그룹 생성 (그룹명 설정, 그룹 멤버 추가)
+- 지출 내역 입력
+- 지출 내역 조회
+- 정산 결과 계산 및 조회
 
 <br/>
 
@@ -20,30 +24,19 @@
 
 누가 누구에게 돈을 줘야 하는지, 복잡하게 손으로 계산할 필요 없이 바로 정산 결과를 볼 수 있다. → 정산 과정에서의 복잡함을 줄여 준다.
 
-<br/>
 
-###  💸  활용한 DATA API
-
-- [ 국토교통부 ] 건축인허가정보서비스 API
-- [ KAKAO ] KAKAO MAP API
-
-<br/>
-
-###  🏗️  API 명세
-
-- [API Docs](https://github.com/CEJSH/wtg-fe/wiki/%08wtg-API-DOCS)
 <br/>
 
 
 ###  ✔ 시퀀스 다이어그램
 
-![image](https://github.com/CEJSH/WhereToGo_project/assets/95568006/53bd76dd-5e53-43ce-abee-c278e8d4dc3f)
+![image](https://github.com/user-attachments/assets/14b33d7f-c125-47e5-a6cb-ff118333ba33)
 
 <br/>
 
 ###  ✔ 실행 화면
 
-![image](https://github.com/CEJSH/WhereToGo_project/assets/95568006/ec08141e-9052-4fb9-9f27-5cca64cf0a19)
+![image](https://github.com/user-attachments/assets/27f7414c-6a77-4508-9644-bfbca66ef3b1)
 
 <br/>
 
