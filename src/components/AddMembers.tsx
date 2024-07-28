@@ -1,19 +1,29 @@
 import { CenteredOverlayForm } from "./shared/CenteredOverlayForm";
 import { InputTags } from "react-bootstrap-tagsinput";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { groupMemberState } from "../state/groupMembers";
 import "react-bootstrap-tagsinput/dist/index.css";
-import { FormEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, useEffect, useState } from "react";
 import { groupNameState } from "../state/groupName";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../route";
+import { expensesState } from "../state/expenses";
 
 export const AddMembers = () => {
   const [groupMembers, setGroupMembers] = useRecoilState(groupMemberState);
   const groupName = useRecoilValue(groupNameState);
+  const reset = useSetRecoilState(expensesState);
   const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (groupName === undefined) {
+      navigate("/");
+      reset([]);
+    }
+  }, []);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -22,8 +32,13 @@ export const AddMembers = () => {
       navigate(ROUTES.EXPENSE_MAIN);
     }
   };
+  const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && location.pathname == "/members") {
+      return alert("버튼을 눌러주세요 :)");
+    }
+  };
 
-  const header = `${groupName} 그룹에 속한 사람들의 이름을 모두 적어 주세요.`;
+  const header = <StyledGroupName>{groupName}</StyledGroupName>;
 
   return (
     <CenteredOverlayForm
@@ -32,9 +47,12 @@ export const AddMembers = () => {
       validated={validated}
     >
       <InputTags
+        onKeyDown={handleEnter}
         data-testid="input-member-names"
-        placeholder="이름 간 띄어쓰기 해주세요"
-        onTags={(value) => setGroupMembers(value.values)}
+        placeholder="이름 간 띄어쓰기(Space Bar) 해주세요"
+        onTags={(value) => {
+          setGroupMembers(value.values);
+        }}
       />
       {validated && groupMembers.length === 0 && (
         <StyledErrorMessage>
@@ -47,4 +65,13 @@ export const AddMembers = () => {
 
 const StyledErrorMessage = styled.span`
   color: red;
+`;
+const StyledGroupName = styled.h2`
+  display: inline;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: right;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+  color: #6610f2;
 `;

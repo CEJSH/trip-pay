@@ -2,12 +2,24 @@ import { Col, Container, Row } from "react-bootstrap";
 import { AddExpenseForm } from "./AddExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { groupNameState } from "../state/groupName";
 import SettlementSummary from "./SettlementSummary";
 import ServiceLogo from "./shared/ServiceLogo";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { expensesState } from "../state/expenses";
 
 export const ExpenseMain = () => {
+  const navigate = useNavigate();
+  const groupName = useRecoilValue(groupNameState);
+  const reset = useSetRecoilState(expensesState);
+  useEffect(() => {
+    if (groupName === undefined) {
+      navigate("/");
+      reset([]);
+    }
+  }, []);
   return (
     <StyledContainer fluid>
       <Row>
@@ -15,7 +27,7 @@ export const ExpenseMain = () => {
           <LeftPane />
         </Col>
         <Col>
-          <RightPane />
+          <RightPane groupName={groupName} />
         </Col>
       </Row>
     </StyledContainer>
@@ -38,8 +50,7 @@ const LeftPane = () => {
   );
 };
 
-const RightPane = () => {
-  const groupName = useRecoilValue(groupNameState);
+const RightPane = ({ groupName }: { groupName: string }) => {
   return (
     <StyledPaneWrapper>
       <Row>
@@ -55,16 +66,20 @@ const RightPane = () => {
 const StyledGapRow = styled(Row)`
   margin-top: 2vh;
   gap: 5vh;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
-const StyledGroupName = styled.h2`
+const StyledGroupName = styled.div`
   margin-bottom: 60px;
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.25px;
   text-align: center;
+  @media (max-width: 576px) {
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
 `;
 
 const StyledContainer = styled(Container)`
@@ -76,4 +91,8 @@ const StyledPaneWrapper = styled(StyledContainer)`
   padding: 0px 31px 0px 31px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 576px) {
+    padding: 0px 10px 0px 10px;
+  }
 `;

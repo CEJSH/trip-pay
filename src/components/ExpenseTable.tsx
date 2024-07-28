@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 export default function ExpenseTable() {
   const expenses = useRecoilValue(expensesState);
+
   return (
     <OverlayWrapper minHeight="73vh">
       <Table data-testid="expenseList" borderless hover responsive>
@@ -39,6 +40,16 @@ const StyledThead = styled.thead`
     padding: 20px 8px;
   }
   padding: 20px 8px;
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+
+    th {
+      padding: 8px 4px;
+      min-width: 80px;
+    }
+    padding: 8px 4px;
+  }
 `;
 const StyledBody = styled.tbody`
   td {
@@ -46,5 +57,12 @@ const StyledBody = styled.tbody`
     font-weight: 351;
     line-height: 59.17px;
     text-align: center;
+  }
+  @media (max-width: 576px) {
+    td {
+      font-size: 16px;
+      line-height: 40px;
+      padding: 0px;
+    }
   }
 `;

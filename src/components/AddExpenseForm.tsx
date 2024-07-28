@@ -179,7 +179,8 @@ const StyledSubmitButton = styled(Button).attrs({
   padding: 16px 32px;
   border: 0px;
   margin-top: 10px;
-
+  font-size: 18px;
+  font-weight: 500;
   &:hover,
   &:focus {
     background-color: #59359a !important;

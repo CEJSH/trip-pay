@@ -2,6 +2,7 @@ import { Button, Container, Form, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { OverlayWrapper } from "./OverlayWrapper";
 import ServiceLogo from "./ServiceLogo";
+import { useLocation } from "react-router-dom";
 
 export const CenteredOverlayForm = ({
   children,
@@ -10,10 +11,11 @@ export const CenteredOverlayForm = ({
   validated,
 }: {
   children: React.ReactNode;
-  title: string;
+  title: string | React.ReactNode;
   handleSubmit?: (event: any) => void;
   validated?: boolean;
 }) => {
+  const { pathname } = useLocation();
   return (
     <StyledCentralizedContainer>
       <ServiceLogo />
@@ -23,7 +25,13 @@ export const CenteredOverlayForm = ({
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <StyledCentralizedRow>
               <Row className="align-item-start">
-                <StyledTitle>{title}</StyledTitle>
+                {pathname === "/members" ? (
+                  <StyledTitle>
+                    {title} 멤버의 이름을 모두 입력해 주세요.
+                  </StyledTitle>
+                ) : (
+                  <StyledTitle>{title}</StyledTitle>
+                )}
               </Row>
               <Row className="align-item-center">{children}</Row>
               <Row className="align-item-end">

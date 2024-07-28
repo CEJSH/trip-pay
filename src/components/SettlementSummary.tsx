@@ -133,8 +133,8 @@ export default function SettlementSummary() {
             {minimumTransaction.map(({ sender, receiver, amount }, index) => (
               <li key={`transaction-${index}`}>
                 <span>
-                  {sender}가 {receiver}에게 {Math.ceil(amount).toLocaleString()}
-                  원 보내기
+                  {sender}(이)가 {receiver}에게{" "}
+                  {Math.ceil(amount).toLocaleString()}원 보내기
                 </span>
               </li>
             ))}
