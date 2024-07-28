@@ -1,4 +1,5 @@
 ## 💸 정산이 필요한 사람들을 위한 서비스 Trip Pay 🧮
+![image](https://github.com/user-attachments/assets/dc6f11d1-c242-4e2e-bd5c-7feb2aa912d8)
 <br/>
 
 ###  💸  프로젝트 소개
