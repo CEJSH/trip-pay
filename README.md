@@ -1,5 +1,5 @@
 ## 💸 Trip Pay - 정산이 필요한 사람들을 위한 서비스🧮
-<img width="60" alt="스크린샷 2024-07-28 오후 6 16 37" src="https://github.com/user-attachments/assets/dc6f11d1-c242-4e2e-bd5c-7feb2aa912d8">
+<img width="300" alt="스크린샷 2024-07-28 오후 6 16 37" src="https://github.com/user-attachments/assets/dc6f11d1-c242-4e2e-bd5c-7feb2aa912d8">
 <br/>
 
 ###  💸  프로젝트 소개
